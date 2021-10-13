@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Markdown Grammar</title>
+      <link href="/2021/10/13/Markdown-Grammar/"/>
+      <url>/2021/10/13/Markdown-Grammar/</url>
+      
+        <content type="html"><![CDATA[<!--Headings--><p>Here are some Headings:</p><p><img src="headings.jpg" alt=""></p><h1 id="heading-1"><a class="markdownIt-Anchor" href="#heading-1">#</a> Heading 1</h1><h2 id="heading-2"><a class="markdownIt-Anchor" href="#heading-2">#</a> Heading 2</h2><h3 id="heading-3"><a class="markdownIt-Anchor" href="#heading-3">#</a> Heading 3</h3><!--Italic--><p><img src="italic.png" alt=""></p><p><strong>Italic Text</strong><br>or<br><strong>Italic Text</strong></p><!--StrikeThrough--><p><s>This text</s> is strikethrough</p><p><img src="partingline.png" alt=""></p><!--Parting line--><hr><hr><!--Code block--><p><img src="codeblock.png" alt=""></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">helloworld</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello world!&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Helloworld</span>():</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Hello world!&quot;</span>)</span><br></pre></td></tr></table></figure><p><code>print(&quot;hello world!&quot;)</code></p><!--Quote--><blockquote><p>Good artists copy, great artists steal.</p></blockquote><!--ol && ul--><p><img src="ul&amp;ol.png" alt=""></p><ul><li>item</li><li>item</li><li>item</li></ul><ol><li>item</li><li>item</li><li>item</li></ol><ul><li><ol><li>item</li></ol></li><li><ol start="2"><li>item</li></ol></li></ul><!--Table--><p><img src="table.png" alt=""></p><table><thead><tr><th>Name</th><th>Email</th></tr></thead><tbody><tr><td>liuk</td><td><a href="mailto:3106034108@qq.com">3106034108@qq.com</a></td></tr></tbody></table><!--Link--><p><img src="link.png" alt=""></p><p><a href="https://github.com/liukplus">My github</a></p><p><a href="https://leetcode-cn.com/">My leetcode</a></p><ul class="task-list"><li class="task-list-item"><input type="checkbox" id="cbx_0" checked="true" disabled="true"><label for="cbx_0"> First blog</label></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Markdown Grammar as a reference </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>My New Post</title>
       <link href="/2021/10/07/My-New-Post/"/>
       <url>/2021/10/07/My-New-Post/</url>
