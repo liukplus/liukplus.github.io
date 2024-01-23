@@ -1,0 +1,211 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sort | Hello</title><meta name="keywords" content="Sort algorithms"><meta name="author" content="liukplus"><meta name="copyright" content="liukplus"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="# 排序算法 # 1. 快速排序 思想：每次从数组中要排序的部分中选择一个元素，将小于等于它的元素放在它的左边，将大于等于它的元素放在它的右边，这样我们就找到了该元素在数组排好序后的正确位置，并且数组被切分成两半，该元素的左边和该元素的右边，再对右边部分地柜调用刚才的步骤，右边部分有序了，左边部分同样也递归调用，左边部分有序了，整个数组也就有序了。 方法： 12345678910111213141">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sort">
+<meta property="og:url" content="https://liukplus.github.io.com/2021/10/15/Sort/index.html">
+<meta property="og:site_name" content="Hello">
+<meta property="og:description" content="# 排序算法 # 1. 快速排序 思想：每次从数组中要排序的部分中选择一个元素，将小于等于它的元素放在它的左边，将大于等于它的元素放在它的右边，这样我们就找到了该元素在数组排好序后的正确位置，并且数组被切分成两半，该元素的左边和该元素的右边，再对右边部分地柜调用刚才的步骤，右边部分有序了，左边部分同样也递归调用，左边部分有序了，整个数组也就有序了。 方法： 12345678910111213141">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2021-10-14T16:08:47.000Z">
+<meta property="article:modified_time" content="2021-11-02T15:58:09.564Z">
+<meta property="article:author" content="liukplus">
+<meta property="article:tag" content="Sort algorithms">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://liukplus.github.io.com/2021/10/15/Sort/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Sort',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-02 23:58:09'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hello</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Sort</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-10-14T16:08:47.000Z" title="发表于 2021-10-15 00:08:47">2021-10-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-02T15:58:09.564Z" title="更新于 2021-11-02 23:58:09">2021-11-02</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Sort"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2021/10/15/Sort/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2021/10/15/Sort/" itemprop="commentCount"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="排序算法"><a class="markdownIt-Anchor" href="#排序算法">#</a> 排序算法</h1>
+<h1 id="1快速排序"><a class="markdownIt-Anchor" href="#1快速排序">#</a> 1. 快速排序</h1>
+<p><code>思想：每次从数组中要排序的部分中选择一个元素，将小于等于它的元素放在它的左边，将大于等于它的元素放在它的右边，这样我们就找到了该元素在数组排好序后的正确位置，并且数组被切分成两半，该元素的左边和该元素的右边，再对右边部分地柜调用刚才的步骤，右边部分有序了，左边部分同样也递归调用，左边部分有序了，整个数组也就有序了。</code></p>
+<p><code>方法：</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 切分数组</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>[] a,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> less=left,more=right+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> v=a[left];<span class="comment">//选取最左边的元素作为这一次要排序的数</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">        <span class="keyword">while</span>(a[++less]&lt;v)&#123;<span class="comment">//找到左边大于v的数</span></span><br><span class="line">            <span class="keyword">if</span>(less&gt;=right)&#123;<span class="keyword">break</span>;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(a[--more]&gt;v)&#123;<span class="comment">//找到右边小于v的数</span></span><br><span class="line">            <span class="comment">// if(more&lt;less)&#123;break;&#125;这里可有可无，因为v等于a[left]，more不可能越界</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(less&gt;=more)&#123;<span class="keyword">break</span>;&#125;<span class="comment">//左指针&gt;=右指针，表示已经遍历完了</span></span><br><span class="line">        exch(a,less,more);<span class="comment">//将左边大于v的数与右边小于</span></span><br><span class="line">    &#125;</span><br><span class="line">    exch(a,more,left);<span class="comment">//将选取的数放在排序后的位置</span></span><br><span class="line">    <span class="keyword">return</span> more;<span class="comment">//返回切分点</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 递归调用的排序方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] a,<span class="keyword">int</span> lo,<span class="keyword">int</span> hi)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(lo&gt;=hi)&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">    <span class="keyword">int</span> partitionPoint=partition(a,lo,hi);<span class="comment">//将数组切分</span></span><br><span class="line">    quickSort(a,lo,partitionPoint-<span class="number">1</span>);<span class="comment">//递归调用将数组左边排序</span></span><br><span class="line">    quickSort(a,partitionPoint+<span class="number">1</span>,hi);<span class="comment">//递归调用将数组右边排序</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 交换</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">exch</span><span class="params">(<span class="keyword">int</span>[] a,<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp=a[i];</span><br><span class="line">    a[i]=a[j];</span><br><span class="line">    a[j]=temp</span><br><span class="line">&#125;</span><br><span class="line">||</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">exch</span><span class="params">(<span class="keyword">int</span>[] a,<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">    a[i]^=a[j];</span><br><span class="line">    a[j]^=a[i];</span><br><span class="line">    a[i]^=a[j];</span><br><span class="line">&#125;(</span><br></pre></td></tr></table></figure>
+<h1 id="2归并排序"><a class="markdownIt-Anchor" href="#2归并排序">#</a> 2. 归并排序</h1>
+<p><code>思想：将要排序的数组a二分为两个数组a1,a2，分别对这两个数组排序,通过递归调用将a1,a2排好序后，再将a1,a2归并，对a1,a2这两个数组排序是也采用相同的办法，二分再归并，实际上排序是通过归并来完成的，无限二分直到lo==hi，即子数组只有一个数（肯定有序），再将各个子数组合并，这样数组就有序了。</code> <br>
+ <code>方法：</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 归并</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>[] a,<span class="keyword">int</span> lo,<span class="keyword">int</span> mid,<span class="keyword">int</span> hi)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] aux=<span class="keyword">new</span> <span class="keyword">int</span>[hi-lo+<span class="number">1</span>];<span class="comment">//建立辅助数组存储归并后的元素</span></span><br><span class="line">    <span class="keyword">int</span> index=<span class="number">0</span>,index1=lo,index2mid+<span class="number">1</span>;<span class="comment">//双指针index1指向数组左边部分的起始位置，index2指向数组右边部分的起始位置</span></span><br><span class="line">    <span class="keyword">while</span>(index1&lt;=mid &amp;&amp; index2&lt;=hi)&#123;</span><br><span class="line">        aux[index++]=a[index1]&gt;a[index2]?a[index1++]:a[index2++];<span class="comment">//比较左指针和右指针指向的元素，将较大的元素赋值给辅助数组对应下标，指向该较大元素的指针右移</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(index1&lt;=mid)&#123;<span class="comment">//左边部分归并剩下部分依次添加到辅助数组（1）</span></span><br><span class="line">        aux[index++]=a[index1++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(index2&lt;=mid)&#123;<span class="comment">//右边部分归并剩下部分依次添加到辅助数组（2）</span></span><br><span class="line">        aux[index++]=a[index2++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//（1）与（2）只会执行一个</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;hi-lo+<span class="number">1</span>;i++)&#123;</span><br><span class="line">        a[i+lo]=aux[i];<span class="comment">//将辅助数组拷贝到原数组</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] a,<span class="keyword">int</span> lo,<span class="keyword">int</span> hi)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(lo&gt;=hi)&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">    <span class="keyword">int</span> mid=lo+(hi-lo)&gt;&gt;<span class="number">1</span>;<span class="comment">//二分数组</span></span><br><span class="line">    mergeSort(a,lo,mid);<span class="comment">//递归调用，将左边排序</span></span><br><span class="line">    mergeSort(a,mid+<span class="number">1</span>,hi);<span class="comment">//将右边排序</span></span><br><span class="line">    merge(a,lo,mid,hi);<span class="comment">//归并左右边</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="3堆排序"><a class="markdownIt-Anchor" href="#3堆排序">#</a> 3. 堆排序</h1>
+<p><code>思想：通过建立二叉堆数据结构（完全二叉树），我么可以用数组的下标来对应二叉树的层级结构，在使用数组的第一个位置的情况下，对二叉树任意节点都有以下关系：某个左子节点下标=2*该节点下标+1，我们要实现这样的堆，它每个节点的值（即数组对应的元素）不小于它的子节点的值，这就是堆有序，从任意节点向上，我们都能得到非递减的元素，从任意节点向下，我们都能得到非递增的元素，对要排序的数组实现堆有序的结构，每次从堆中取出根节点（也就是最大元素），再将堆恢复为有序，具体步骤是交换根节点和最后一个节点，然后断开最后一个节点与堆的连接，通过下沉根节点将堆恢复为有序。所以我们每次从堆中取出的元素都是堆中最大的元素，这样数组中所有的元素就排好序了。</code> <br>
+ <code>方法：</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下沉</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sink</span><span class="params">(<span class="keyword">int</span>[] a,<span class="keyword">int</span> sinkPoint,<span class="keyword">int</span> heapsize)</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">2</span>*sinkPoint+<span class="number">1</span>&lt;heapsize)&#123;</span><br><span class="line">        <span class="keyword">int</span> left=<span class="number">2</span>*sinkPoint+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> larger = left+<span class="number">1</span>&lt;heapsize &amp;&amp; a[left+<span class="number">1</span>]&gt;a[left]?left+<span class="number">1</span>:left;</span><br><span class="line">        <span class="keyword">if</span>(a[sinkPoint]&lt;a[larger])&#123;</span><br><span class="line">            exch(a,sinkPoint,larger);</span><br><span class="line">            sinkPoint=larger;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;<span class="keyword">break</span>;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 上浮</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swim</span><span class="params">(<span class="keyword">int</span>[] a,<span class="keyword">int</span> swimPoint)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(swimPoint&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[swimPoint]&gt;a[(swimPoint-<span class="number">1</span>)/<span class="number">2</span>])&#123;</span><br><span class="line">                exch(a,swimPoint,(swimPoint-<span class="number">1</span>)/<span class="number">2</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">heapSort</span><span class="params">(<span class="keyword">int</span>[] a)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len = a.length;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">        swim(a,i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> heapsize=len;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">        exch(a,--heapsize,<span class="number">0</span>);</span><br><span class="line">        sink(a,<span class="number">0</span>,heapsize);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">||</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] a)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len = a.length;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=(len-<span class="number">1</span>)/<span class="number">2</span>;i&gt;=<span class="number">0</span>;i--) &#123;</span><br><span class="line">        sink(a, i, len);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> heapsize = len;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">        swap(a, <span class="number">0</span>, --heapsize);</span><br><span class="line">        sink(a, <span class="number">0</span>, heapsize);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">heapSort</span><span class="params">(<span class="keyword">int</span>[] a)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len=a.length;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=(len-<span class="number">1</span>)/<span class="number">2</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">        sink(a,i,len);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    <div id="aplayer-vKRpYYkz" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="4999290430" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="true" data-mutex="false" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"
+    ></div>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">liukplus</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://liukplus.github.io.com/2021/10/15/Sort/">https://liukplus.github.io.com/2021/10/15/Sort/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://liukplus.github.io.com" target="_blank">Hello</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Sort-algorithms/">Sort algorithms</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/10/18/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">二叉树遍历</div></div></a></div><div class="next-post pull-right"><a href="/2021/10/13/Markdown-Grammar/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Markdown Grammar</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">liukplus</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text"> 排序算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="toc-number">2.</span> <span class="toc-text"> 1. 快速排序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="toc-number">3.</span> <span class="toc-text"> 2. 归并排序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3%E5%A0%86%E6%8E%92%E5%BA%8F"><span class="toc-number">4.</span> <span class="toc-text"> 3. 堆排序</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/01/22/leetcode-weekly-contest381/" title="leetcode-weekly-contest381"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="leetcode-weekly-contest381"/></a><div class="content"><a class="title" href="/2024/01/22/leetcode-weekly-contest381/" title="leetcode-weekly-contest381">leetcode-weekly-contest381</a><time datetime="2024-01-21T16:08:44.000Z" title="发表于 2024-01-22 00:08:44">2024-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/21/leetcode-biweekly-contest122/" title="leetcode-biweekly-contest122"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="leetcode-biweekly-contest122"/></a><div class="content"><a class="title" href="/2024/01/21/leetcode-biweekly-contest122/" title="leetcode-biweekly-contest122">leetcode-biweekly-contest122</a><time datetime="2024-01-21T15:22:05.000Z" title="发表于 2024-01-21 23:22:05">2024-01-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/07/leetcode-biweekly-contest121/" title="leetcode-biweekly-contest121"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="leetcode-biweekly-contest121"/></a><div class="content"><a class="title" href="/2024/01/07/leetcode-biweekly-contest121/" title="leetcode-biweekly-contest121">leetcode-biweekly-contest121</a><time datetime="2024-01-06T17:09:21.000Z" title="发表于 2024-01-07 01:09:21">2024-01-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/02/leetcode-weekly-contest378/" title="leetcode-weekly-contest378"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="leetcode-weekly-contest378"/></a><div class="content"><a class="title" href="/2024/01/02/leetcode-weekly-contest378/" title="leetcode-weekly-contest378">leetcode-weekly-contest378</a><time datetime="2024-01-02T08:54:33.000Z" title="发表于 2024-01-02 16:54:33">2024-01-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/02/leetcode-weekly-contest376/" title="leetcode-weekly-contest376"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="leetcode-weekly-contest376"/></a><div class="content"><a class="title" href="/2024/01/02/leetcode-weekly-contest376/" title="leetcode-weekly-contest376">leetcode-weekly-contest376</a><time datetime="2024-01-02T08:54:17.000Z" title="发表于 2024-01-02 16:54:17">2024-01-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By liukplus</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/tsumiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>

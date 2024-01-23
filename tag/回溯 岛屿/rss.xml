@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Hello • Posts by &#34;回溯 岛屿&#34; tag</title>
+        <link>https://liukplus.github.io.com</link>
+        <description></description>
+        <language>zh-CN</language>
+        <pubDate>Wed, 27 Oct 2021 20:17:17 +0800</pubDate>
+        <lastBuildDate>Wed, 27 Oct 2021 20:17:17 +0800</lastBuildDate>
+        <category>树 二叉树</category>
+        <category>Markdown Grammar as a reference</category>
+        <category>回溯 岛屿</category>
+        <category>Sort algorithms</category>
+        <category>leetcode contest</category>
+        <item>
+            <guid isPermalink="true">https://liukplus.github.io.com/2021/10/27/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95-%E5%B2%9B%E5%B1%BF%E9%97%AE%E9%A2%98/</guid>
+            <title>回溯算法-岛屿问题</title>
+            <link>https://liukplus.github.io.com/2021/10/27/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95-%E5%B2%9B%E5%B1%BF%E9%97%AE%E9%A2%98/</link>
+            <category>回溯 岛屿</category>
+            <pubDate>Wed, 27 Oct 2021 20:17:17 +0800</pubDate>
+            <description><![CDATA[ &lt;link rel=&#34;stylesheet&#34; class=&#34;aplayer-secondary-style-marker&#34; href=&#34;\assets\css\APlayer.min.css&#34;&gt;&lt;script src=&#34;\assets\js\APlayer.min.js&#34; class=&#34;aplayer-secondary-script-marker&#34;&gt;&lt;/script&gt;&lt;script class=&#34;meting-secondary-script-marker&#34; src=&#34;\assets\js\Meting.min.js&#34;&gt;&lt;/script&gt;&lt;h1 id=&#34;回溯算法介绍&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#回溯算法介绍&#34;&gt;#&lt;/a&gt; 回溯算法介绍&lt;/h1&gt;
+&lt;h1 id=&#34;回溯算法经典问题&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#回溯算法经典问题&#34;&gt;#&lt;/a&gt; 回溯算法经典问题&lt;/h1&gt;
+&lt;h2 id=&#34;1排列组合问题大礼包&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1排列组合问题大礼包&#34;&gt;#&lt;/a&gt; 1. 排列组合问题大礼包&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/combination-sum/&#34;&gt;组合&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/combination-sum-ii/&#34;&gt;组合 ||&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/combination-sum-iii/&#34;&gt;组合 |||&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/combination-sum-iv/&#34;&gt;组合 Ⅳ&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/permutations/&#34;&gt;全排列&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/permutations-ii/&#34;&gt;全排列 ||&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/subsets/&#34;&gt;子集&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/subsets-ii/&#34;&gt;子集 ||&lt;/a&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

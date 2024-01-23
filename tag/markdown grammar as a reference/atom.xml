@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://liukplus.github.io.com</id>
+    <title>Hello • Posts by &#34;markdown grammar as a reference&#34; tag</title>
+    <link href="https://liukplus.github.io.com" />
+    <updated>2021-10-13T06:01:49.000Z</updated>
+    <category term="树 二叉树" />
+    <category term="Markdown Grammar as a reference" />
+    <category term="回溯 岛屿" />
+    <category term="Sort algorithms" />
+    <category term="leetcode contest" />
+    <entry>
+        <id>https://liukplus.github.io.com/2021/10/13/Markdown-Grammar/</id>
+        <title>Markdown Grammar</title>
+        <link rel="alternate" href="https://liukplus.github.io.com/2021/10/13/Markdown-Grammar/"/>
+        <content type="html">&lt;link rel=&#34;stylesheet&#34; class=&#34;aplayer-secondary-style-marker&#34; href=&#34;\assets\css\APlayer.min.css&#34;&gt;&lt;script src=&#34;\assets\js\APlayer.min.js&#34; class=&#34;aplayer-secondary-script-marker&#34;&gt;&lt;/script&gt;&lt;script class=&#34;meting-secondary-script-marker&#34; src=&#34;\assets\js\Meting.min.js&#34;&gt;&lt;/script&gt;&lt;!--Headings--&gt;
+&lt;p&gt;Here are some Headings:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;headings.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;heading-1&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#heading-1&#34;&gt;#&lt;/a&gt; Heading 1&lt;/h1&gt;
+&lt;h2 id=&#34;heading-2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#heading-2&#34;&gt;#&lt;/a&gt; Heading 2&lt;/h2&gt;
+&lt;h3 id=&#34;heading-3&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#heading-3&#34;&gt;#&lt;/a&gt; Heading 3&lt;/h3&gt;
+&lt;!--Italic--&gt;
+&lt;p&gt;&lt;img src=&#34;italic.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Italic Text&lt;/strong&gt;&lt;br&gt;
+or&lt;br&gt;
+&lt;strong&gt;Italic Text&lt;/strong&gt;&lt;/p&gt;
+&lt;!--StrikeThrough--&gt;
+&lt;p&gt;&lt;s&gt;This text&lt;/s&gt; is strikethrough&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;partingline.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;!--Parting line--&gt;
+&lt;hr&gt;
+&lt;hr&gt;
+&lt;!--Code block--&gt;
+&lt;p&gt;&lt;img src=&#34;codeblock.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;helloworld&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(String[] args)&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        System.out.println(&lt;span class=&#34;string&#34;&gt;&amp;quot;Hello world!&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;Helloworld&lt;/span&gt;():&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;Hello world!&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;code&gt;print(&amp;quot;hello world!&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;!--Quote--&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Good artists copy, great artists steal.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;!--ol &amp;&amp; ul--&gt;
+&lt;p&gt;&lt;img src=&#34;ul&amp;amp;ol.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;item&lt;/li&gt;
+&lt;li&gt;item&lt;/li&gt;
+&lt;li&gt;item&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;item&lt;/li&gt;
+&lt;li&gt;item&lt;/li&gt;
+&lt;li&gt;item&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ol&gt;
+&lt;li&gt;item&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;item&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--Table--&gt;
+&lt;p&gt;&lt;img src=&#34;table.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Email&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;liuk&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;mailto:3106034108@qq.com&#34;&gt;3106034108@qq.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!--Link--&gt;
+&lt;p&gt;&lt;img src=&#34;link.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/liukplus&#34;&gt;My github&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://leetcode-cn.com/&#34;&gt;My leetcode&lt;/a&gt;&lt;/p&gt;
+&lt;ul class=&#34;task-list&#34;&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_0&#34; checked=&#34;true&#34; disabled=&#34;true&#34;&gt;&lt;label for=&#34;cbx_0&#34;&gt; First blog&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="Markdown Grammar as a reference" />
+        <updated>2021-10-13T06:01:49.000Z</updated>
+    </entry>
+</feed>
